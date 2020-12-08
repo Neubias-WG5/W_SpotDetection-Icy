@@ -4,8 +4,8 @@ from cytomine.models import *
 from subprocess import call
 from pathlib import Path
 
-from neubiaswg5 import CLASS_SPTCNT
-from neubiaswg5.helpers import prepare_data, NeubiasJob, upload_data, upload_metrics, get_discipline
+from biaflows import CLASS_SPTCNT
+from biaflows.helpers import prepare_data, BiaflowsJob, upload_data, upload_metrics, get_discipline
 
 
 def makedirs(path):
@@ -22,7 +22,7 @@ def clean_icy_result_file(filepath, n=1):
 
 
 def main():
-    with NeubiasJob.from_cli(sys.argv[1:]) as nj:
+    with BiaflowsJob.from_cli(sys.argv[1:]) as nj:
         nj.job.update(status=Job.RUNNING, progress=0, statusComment="Initialization...")
 
         # 1. Create working directories on the machine:
