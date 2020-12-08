@@ -39,11 +39,6 @@ RUN cp /biaflows-utilities/bin/* /usr/bin/
 # cleaning
 RUN rm -r /biaflows-utilities
 
-# custom version of imagecodecs to make sure tifffile can read icy-generated images
-RUN pip install numpy==1.18.4
-RUN pip install Cython==0.29.19
-RUN pip install imagecodecs-lite==2020.5.30 
-
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Protocol
 ADD protocol.protocol /icy/protocols/protocol.protocol
